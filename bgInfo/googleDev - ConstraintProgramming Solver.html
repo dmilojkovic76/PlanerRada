@@ -1,0 +1,452 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee Scheduling</title>
+    <style>
+        .devsite-header-no-upper-tabs .devsite-article-inner, .devsite-header-no-upper-tabs .devsite-main-content {
+            min-height: calc(100vh - 526px);
+        }
+        .devsite-article-inner {
+            float: left;
+            width: 100%;
+        }
+        .devsite-article-inner, .devsite-main-content {
+            min-height: calc(100vh - 582px);
+        }
+        .devsite-article-body {
+            width: 80%;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        article, aside, footer, header, hgroup, main, nav, section {
+            display: block;
+        }
+        body, html {
+            color: #212121;
+            font: 400 16px/24px Roboto,sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        .devsite-table-wrapper table {
+            margin: 0;
+        }
+        table, table.google-visualization-table-table {
+            border: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font: 14px/20px Roboto,sans-serif;
+            margin: 16px 0;
+            width: 100%;
+        }
+        tr, table.google-visualization-table-table .google-visualization-table-tr-head, table.google-visualization-table-table .google-visualization-table-tr-even, table.google-visualization-table-table .google-visualization-table-tr-odd {
+            background: #78909c;
+            border: 0;
+            border-top: 1px solid #cfd8dc;
+        }
+        td, table.responsive tr:not(.alt) td td:first-child, table.responsive td tr:not(.alt) td:first-child, table.google-visualization-table-table .google-visualization-table-td {
+            background: rgba(255,255,255,.95);
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    
+    <article class="devsite-article-inner">
+  
+          
+  
+
+
+        <div class="devsite-rating-container
+                    "><div class="devsite-rating-stars"><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons" data-rating-val="1" data-category="Site-Wide Custom Events" data-label="Star Rating 1" track-metadata-score="1" track-type="feedback" track-name="rating" track-metadata-position="header" role="button" aria-label="Site content star ratings, rating 1 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons" data-rating-val="2" data-category="Site-Wide Custom Events" data-label="Star Rating 2" track-metadata-score="2" track-type="feedback" track-name="rating" track-metadata-position="header" role="button" aria-label="Site content star ratings, rating 2 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons" data-rating-val="3" data-category="Site-Wide Custom Events" data-label="Star Rating 3" track-metadata-score="3" track-type="feedback" track-name="rating" track-metadata-position="header" role="button" aria-label="Site content star ratings, rating 3 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons" data-rating-val="4" data-category="Site-Wide Custom Events" data-label="Star Rating 4" track-metadata-score="4" track-type="feedback" track-name="rating" track-metadata-position="header" role="button" aria-label="Site content star ratings, rating 4 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons" data-rating-val="5" data-category="Site-Wide Custom Events" data-label="Star Rating 5" track-metadata-score="5" track-type="feedback" track-name="rating" track-metadata-position="header" role="button" aria-label="Site content star ratings, rating 5 out of 5"></div></div><div class="devsite-rating-description"></div><div class="devsite-rating-internal"><span class="devsite-rating-stats"></span></div></div><script>
+          $(document).ready(function() {
+            devsite.ratings.init(
+              document.querySelectorAll('#devsite-feedback-project'), false
+              
+            );
+          });
+        </script>
+        
+        
+          
+          <nav class="devsite-breadcrumb-nav devsite-nav">
+            
+        
+        
+        <ul class="devsite-breadcrumb-list">
+          
+          <li class="devsite-breadcrumb-item">
+            
+            
+            <a href="https://developers.google.com/products/" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Breadcrumbs" data-value="1">
+            
+            
+              Products
+            
+            
+            </a>
+            
+          </li>
+          
+          <li class="devsite-breadcrumb-item">
+            
+            
+            <div class="devsite-breadcrumb-guillemet material-icons"></div>
+            
+            
+            <a href="https://developers.google.com/optimization/" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Breadcrumbs" data-value="2">
+            
+            
+              Optimization
+            
+            
+            </a>
+            
+          </li>
+          
+          <li class="devsite-breadcrumb-item">
+            
+            
+            <div class="devsite-breadcrumb-guillemet material-icons"></div>
+            
+            
+            <a href="https://developers.google.com/optimization/introduction/overview" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Breadcrumbs" data-value="3">
+            
+            
+              Guides
+            
+            
+            </a>
+            
+          </li>
+          
+        </ul>
+        
+          </nav>
+          
+          
+          <h1 itemprop="name" class="devsite-page-title">
+            The N-queens Problem
+          </h1>
+          
+          
+          <nav class="devsite-page-nav-embedded devsite-nav"><ul class="devsite-page-nav-list"><li class="devsite-nav-item devsite-nav-item-heading"><a href="#top_of_page" class="devsite-nav-title"><span>Contents</span></a><button type="button" class="devsite-nav-show-all button-transparent material-icons" data-tooltip-align="b,c" data-tooltip="Expand/collapse contents" aria-label="Expand/collapse contents" data-title="Expand/collapse contents"></button></li><li class="devsite-nav-item"><a href="#cp_solver" class="devsite-nav-title"><span>The CP approach to the N-queens problem</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#4queens" class="devsite-nav-title"><span>Propagation and backtracking</span></a></li></ul></li><li class="devsite-nav-item"><a href="#solving" class="devsite-nav-title"><span>Python solution to the N-queens problem</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#solver" class="devsite-nav-title"><span>Declare the solver</span></a></li><li class="devsite-nav-item"><a href="#variables" class="devsite-nav-title devsite-nav-item-hidden"><span>Create the variables</span></a></li><li class="devsite-nav-item"><a href="#constraints" class="devsite-nav-title devsite-nav-item-hidden"><span>Create the constraints</span></a></li><li class="devsite-nav-item"><a href="#decision_builder" class="devsite-nav-title devsite-nav-item-hidden"><span>Add the decision builder</span></a></li><li class="devsite-nav-item"><a href="#solution" class="devsite-nav-title devsite-nav-item-hidden"><span>Call the solver and display the results</span></a></li><li class="devsite-nav-item"><a href="#program" class="devsite-nav-title devsite-nav-item-hidden"><span>The entire program</span></a></li></ul></li><li class="devsite-nav-item"><button type="button" class="button-flat devsite-nav-more-items material-icons" aria-hidden="true" data-tooltip-align="b,c" data-tooltip="Expand/collapse contents" aria-label="Expand/collapse contents" data-title="Expand/collapse contents"></button></li></ul></nav>
+          
+          <div class="devsite-article-body clearfix
+                    " itemprop="articleBody">
+            
+            <p>In the following sections, we'll illustrate the CP solver
+              by a combinatorial problem
+              based on the game of chess. In chess, a queen can attack horizontally, vertically, and
+            diagonally. The N-queens problem asks:</p>
+        
+            <blockquote>
+            <i>How can N queens be placed on an NxN chessboard so that no two of
+            them attack each other?</i>
+            </blockquote>
+        
+            <p>Below, you can see one possible solution to the N-queens problem for N = 4.</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/sol_4x4_b.png"></p>
+        
+            <p>No two queens are on the same row, column, or diagonal.</p>
+        
+            <p>Note that this isn't an optimization problem: we want to find all possible solutions, rather
+               than one optimal solution, which makes it a natural candidate for the CP solver.
+               The following sections describe the CP approach to the N-queens
+               problem and present a Python program that finds all solutions using the CP solver.
+            </p>
+        
+            <h2 id="cp_solver"><a href="#top_of_page" class="devsite-back-to-top-link material-icons" data-tooltip-align="b,c" data-tooltip="Back to top" aria-label="Back to top" data-title="Back to top"></a>The CP approach to the N-queens problem</h2>
+            <p>To find all solutions to the N-queens problem, the CP solver systematically tries all
+              possible assignments of values to the variables, to
+              see which ones give feasible solutions to the problem (see
+              <a href="https://developers.google.com/optimization/cp/cp_solver#cp_solver">A brief introduction to the CP solver)</a>.
+              In the 4-queens problem, the solver starts at the leftmost
+              column and successively places
+              one queen in each column, at a location that is not attacked by
+              any previously placed queens.
+            </p>
+            <h3 id="4queens">Propagation and backtracking</h3>
+            <p>There are two key elements to a CP search:
+            </p><ul>
+              <li><i>Propagation</i> —  Each time the solver assigns a value to a variable, the
+                constraints add restrictions on the possible values of the unassigned variables. These
+                restrictions <i>propagate</i> to future variable assignments.
+                For example,
+                in the 4-queens problem, each time the solver places a queen, it can't place any
+                other queens on the row and diagonals the current queen is on.
+                Propagation can speed up the search significantly by
+                reducing the set of variable values the solver must explore.
+              </li>
+              <li><i>Backtracking</i> occurs when either the solver can't assign a value to the next
+                variable,
+                due to the constraints, or it finds a solution. In either case, the solver
+                backtracks to a previous stage and changes the value of the variable at that stage to
+                a value that hasn't already been tried. In the 4-queens example, this means moving a
+                queen to a new square on the current column. </li>
+            </ul>
+        
+            <p>Next, you'll see how the CP solver uses propagation
+            and backtracking to solve the 4-queens problem.</p>
+        
+              <p>The solver starts by arbitrarily placing a queen in the upper left
+            corner. That's a hypothesis of sorts; perhaps it will turn out that no
+            solution exists with a queen in the upper left corner.</p>
+        
+            <p>Given this hypothesis, what constraints can we propagate? One
+            constraint is that there can be only one queen in a column (the gray
+            Xs below), and another constraint prohibits two queens on the
+            same diagonal (the red Xs below).</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation1.png"></p>
+        
+            <p>Our third constraint prohibits queens on the same row:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation2.png"></p><p>
+        
+            </p><p>Our constraints propagated, we can test out another hypothesis, and
+            place a second queen on one of the available remaining squares. Our
+            solver might decide to place in it the first available square in the
+            second column:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation3.png"></p>
+        
+            <p>After propagating the diagonal constraint, we can see that it
+            leaves no available squares in either the third column or last
+            row:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation4.png"></p>
+        
+            <p>With no solutions possible at this stage, we need to backtrack. One
+            option is for the solver to choose the other available square in the
+            second column. However, constraint propagation then forces a queen
+            into the second row of the third column, leaving no valid spots for
+            the fourth queen:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation6.png"></p>
+        
+            <p>And so the solver must backtrack again, this time all the way back
+            to the placement of the first queen. We have now shown that no solution
+            to the our queens problem will occupy a corner square.</p>
+        
+            <p>Since there can be no queen in the corner, the solver moves the
+            first queen down by one, and propagates, leaving only one spot for the
+            second queen:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation9.png"></p>
+        
+            <p>Propagating again reveals only one spot left for the third queen:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation10.png"></p>
+        
+            <p>And for the fourth and final queen:</p>
+        
+            <p><img src="https://developers.google.com/optimization/images/queens/propagation12.png"></p>
+        
+            <p>We have our first solution! If we instructed our solver to stop
+            after finding the first solution, it would end here. Otherwise, it
+            would backtrack again and place the first queen in the third row of
+            the first column.</p>
+        
+            <h2 id="solving"><a href="#top_of_page" class="devsite-back-to-top-link material-icons" data-tooltip-align="b,c" data-tooltip="Back to top" aria-label="Back to top" data-title="Back to top"></a>Python solution to the N-queens problem</h2>
+            <p>The N-queens problem is ideally suited to constraint
+            programming. In this section we'll walk through a short Python program
+            that uses OR-Tools to solve N-queens for any value of N.</p>
+        
+            <h3 id="solver">Declare the solver</h3>
+        
+            <p>The following code creates the CP solver for the program.</p>
+            <pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="kwd">from</span><span class="pln"> ortools</span><span class="pun">.</span><span class="pln">constraint_solver </span><span class="kwd">import</span><span class="pln"> pywrapcp<br><br></span><span class="kwd">def</span><span class="pln"> main</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; </span><span class="com"># Creates the solver.</span><span class="pln"><br>&nbsp; solver </span><span class="pun">=</span><span class="pln"> pywrapcp</span><span class="pun">.</span><span class="typ">Solver</span><span class="pun">(</span><span class="str">"n-queens"</span><span class="pun">)</span></pre>
+        
+            <h3 id="variables">Create the variables</h3>
+            <p>The solver's <code>Int_Var</code> method creates the variables for the problem as
+              an array named <code>queens</code>.
+            </p><pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="pln">&nbsp; </span><span class="com"># Creates the variables.</span><span class="pln"><br>&nbsp; </span><span class="com"># The array index is the column, and the value is the row.</span><span class="pln"><br>&nbsp; queens </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">IntVar</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> board_size </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"x%i"</span><span class="pln"> </span><span class="pun">%</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]</span></pre>
+            <code>queens[j]</code> represents the square on the chessboard whose column number is
+            the index <code>j</code>, and whose row number (going from
+            top to bottom) is the value of <code>queens[j]</code>. For any solution,
+            <code>queens[j] = i</code> means there is a queen in column <code>j</code> and row
+            <code>i</code>.<p></p>
+        
+            <h3 id="constraints">Create the constraints</h3>
+        
+            <p>Here's the code that creates the constraints for the problem.</p>
+            <pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="pln">&nbsp; </span><span class="com"># Creates the constraints.</span><span class="pln"><br><br>&nbsp; </span><span class="com"># All rows must be different.</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">(</span><span class="pln">queens</span><span class="pun">))</span><span class="pln"><br><br>&nbsp; </span><span class="com"># All columns must be different because the indices of queens are all different.</span><span class="pln"><br><br>&nbsp; </span><span class="com"># No two queens can be on the same diagonal.</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">([</span><span class="pln">queens</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]))</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">([</span><span class="pln">queens</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> i </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]))</span></pre>
+            <p></p>
+            <p>Let's see how these constraints guarantee the three conditions for the N-queens problem
+              (queens on different rows, columns, and diagonals).</p>
+            <h4>No two queens on the same row</h4>
+            <p>Applying the solver's <code>AllDifferent</code> method to <code>queens</code>
+              forces the values of <code>
+              queens[i]</code> to be different for each
+              <code>i</code>, which means that all queens must be in different rows.</p>
+        
+              <h4>No two queens on the same column</h4>
+            <p>This constraint is implicit in the definition of <code>queens</code>.
+              Since no two elements of <code>queens</code>
+              can have the same index, no two queens can be in the same column.</p>
+            <h4>No two queens on the same diagonal</h4>
+        
+            <p>If two queens lie on the same diagonal of a chessboard, then
+              either the row
+              number plus the column number for both queens are equal, or the row number minus
+              the column number are equal (depending on whether
+              the diagonal goes up or down as you move from left to right). You can
+              convince yourself that this is so by trying a few examples. Since
+              <code>queens[i]</code> is the row number of the queen with column number <code>i</code>,
+              the following constraints ensure that no two queens are on the same diagonal:
+               </p><ul>
+                 <li>The values of <code>queens[i] + i</code> are different for each <code>i</code>.
+                 </li><li>The values of <code>queens[i] - i</code> are different for each <code>i</code>.
+               </li></ul>
+            <p></p>
+            <p>The code above adds this constraint by applying the
+              <a href="https://developers.google.com/optimization/reference/constraint_solver/constraint_solver/Solver/index.html">
+                <code>AllDifferent</code></a> method
+              to <code>queens[i]&nbsp;+&nbsp;i</code> and <code>queens[i]&nbsp;-&nbsp;i</code>,
+              for each <code>i</code>.</p>
+        
+            <h3 id="decision_builder">Add the decision builder</h3>
+            <p>The next step is to create a decision builder,
+             which sets the search strategy for the problem. The search strategy can have a major impact on
+             the search time, due to propagation of constraints, which
+              reduces the number of variable values the solver has to explore. You have already seen an
+              example of this in the <a href="https://developers.google.com/optimization/cp/queens.html#4queens">4-queens example</a>.
+             </p>
+        
+            <p>The following code creates a decision builder using the solver's
+              <a href="https://developers.google.com/optimization/reference/constraint_solver/constraint_solver/Solver/index.html#MakePhase">
+              <code>Phase</code></a> method.
+              </p><pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="pln">&nbsp; db </span><span class="pun">=</span><span class="pln"> solver</span><span class="pun">.</span><span class="typ">Phase</span><span class="pun">(</span><span class="pln">queens</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; solver</span><span class="pun">.</span><span class="pln">CHOOSE_FIRST_UNBOUND</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; solver</span><span class="pun">.</span><span class="pln">ASSIGN_MIN_VALUE</span><span class="pun">)</span></pre>
+        
+             See <a href="https://developers.google.com/optimization/cp/cp_solver.html#db">Decision builder</a> for details on the
+             input arguments to the <code>Phase</code> method.<p></p>
+        
+            <h4>How the decision builder works in the 4-queens example</h4>
+        
+            <p>Let's take a look at how decision builder directs the search in the
+              <a href="https://developers.google.com/optimization/cp/queens.html#4queens">4-queens example</a>.
+              The solver begins with <code>queens[0]</code>,
+              the first variable in the array,
+              as directed by <code>CHOOSE_FIRST_UNBOUND</code>. The solver then assigns <code>queens[0]</code>
+              the smallest value that hasn't already been tried, which is 0 at this stage,
+              as directed by <code>ASSIGN_MIN_VALUE</code>. This places the first queen in the
+              upper left corner of the board.</p>
+        
+            <p>Next, the solver selects <code>queens[1]</code>, which is now
+              the first unbound variable in <code>queens</code>.
+              After propagating the constraints, there two possible
+              rows for a queen in column 1:  row 2 or row 3. The <code>ASSIGN_MIN_VALUE</code> option
+              directs the solver to assign
+              <code>queens[1]&nbsp;=&nbsp;2</code>. (If instead, you set <code>IntValueStrategy</code> to
+              <code>ASSIGN_MAX_VALUE</code>, the solver would assign <code>queens[1]&nbsp;=&nbsp;3</code>.)</p>
+        
+            <p>You can check that the rest of the search follows the same rules.</p>
+        
+            <h3 id="solution">Call the solver and display the results</h3>
+            <p>The following code runs the solver and displays the solution.</p>
+            <pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="pln">&nbsp; solver</span><span class="pun">.</span><span class="typ">NewSearch</span><span class="pun">(</span><span class="pln">db</span><span class="pun">)</span><span class="pln"><br><br>&nbsp; </span><span class="com"># Iterates through the solutions, displaying each.</span><span class="pln"><br>&nbsp; num_solutions </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">while</span><span class="pln"> solver</span><span class="pun">.</span><span class="typ">NextSolution</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># Displays the solution just computed.</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> j </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> queens</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="typ">Value</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> i</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com"># There is a queen in column j, row i.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Q"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">end</span><span class="pun">=</span><span class="str">" "</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"_"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">end</span><span class="pun">=</span><span class="str">" "</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; num_solutions </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">EndSearch</span><span class="pun">()</span></pre>
+        
+            <p>Here's the first solution found by the program for an 8x8 board.</p>
+        
+            <pre><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div></div>  _ _ _ Q _ _ _ _
+          _ Q _ _ _ _ _ _
+          _ _ _ _ Q _ _ _
+          _ _ _ _ _ _ _ Q
+          _ _ _ _ _ Q _ _
+          Q _ _ _ _ _ _ _
+          _ _ Q _ _ _ _ _
+          _ _ _ _ _ _ Q _
+        
+          <i>...91 other solutions displayed...</i>
+        
+          Solutions found: 92
+          Time: 9 ms    </pre>
+        
+             <p>You can solve the problem for a board of a different size by passing in N as
+             a command-line argument. For example,</p>
+            <pre><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div></div><b>python projects/queens.py 6</b></pre>
+             <p>solves the problem for a 6x6 board.</p>
+        
+            <p>The number of solutions goes up roughly exponentially with the size of the
+            board:</p>
+        
+            <style>
+              #table1 { width:75%; }
+              #table1 td { width:25%; text-align: right; }
+            </style>
+            <p>
+        </p><div class="devsite-table-wrapper"><table id="table1">
+          <tbody><tr><th>Board size</th><th>Solutions</th><th>Time to find all solutions (ms)</th></tr>
+          <tr><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td>2</td><td>0</td><td>0</td></tr>
+          <tr><td>3</td><td>0</td><td>0</td></tr>
+          <tr><td>4</td><td>2</td><td>0</td></tr>
+          <tr><td>5</td><td>10</td><td>0</td></tr>
+          <tr><td>6</td><td>4</td><td>0</td></tr>
+          <tr><td>7</td><td>40</td><td>3</td></tr>
+          <tr><td>8</td><td>92</td><td>9</td></tr>
+          <tr><td>9</td><td>352</td><td>35</td></tr>
+          <tr><td>10</td><td>724</td><td>95</td></tr>
+          <tr><td>11</td><td>2680</td><td>378</td></tr>
+          <tr><td>12</td><td>14200</td><td>2198</td></tr>
+          <tr><td>13</td><td>73712</td><td>11628</td></tr>
+          <tr><td>14</td><td>365596</td><td>62427</td></tr>
+          <tr><td>15</td><td>2279184</td><td>410701</td></tr>
+        </tbody></table></div>
+            Many solutions are just rotations of others, and a technique called symmetry breaking can be
+            used to reduce the amount of computation needed. We don't use that here; our solution above
+            isn't intended to be fast, just simple. Of course, we could make it much faster if we wanted
+            to only find one solution instead of all of them: no more than a few milliseconds for board sizes
+            up to 50.<p></p>
+        
+            <h3 id="program">The entire program</h3>
+            <p>Here is the entire program for the N-queens program.</p>
+            <pre class="prettyprint lang-python"><div class="devsite-code-button-wrapper"><div class="devsite-code-button gc-analytics-event material-icons devsite-dark-code-button" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" data-tooltip-align="b,c" data-tooltip="Dark code theme" aria-label="Dark code theme" data-title="Dark code theme"></div><div class="devsite-code-button gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy" data-tooltip-align="b,c" data-tooltip="Click to copy" aria-label="Click to copy" data-title="Click to copy"></div></div><span class="str">"""<br>&nbsp; OR-tools solution to the N-queens problem.<br>"""</span><span class="pln"><br></span><span class="kwd">from</span><span class="pln"> __future__ </span><span class="kwd">import</span><span class="pln"> print_function<br></span><span class="kwd">import</span><span class="pln"> sys<br></span><span class="kwd">from</span><span class="pln"> ortools</span><span class="pun">.</span><span class="pln">constraint_solver </span><span class="kwd">import</span><span class="pln"> pywrapcp<br><br></span><span class="kwd">def</span><span class="pln"> main</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; </span><span class="com"># Creates the solver.</span><span class="pln"><br>&nbsp; solver </span><span class="pun">=</span><span class="pln"> pywrapcp</span><span class="pun">.</span><span class="typ">Solver</span><span class="pun">(</span><span class="str">"n-queens"</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com"># Creates the variables.</span><span class="pln"><br>&nbsp; </span><span class="com"># The array index is the column, and the value is the row.</span><span class="pln"><br>&nbsp; queens </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">IntVar</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> board_size </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"x%i"</span><span class="pln"> </span><span class="pun">%</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]</span><span class="pln"><br>&nbsp; </span><span class="com"># Creates the constraints.</span><span class="pln"><br><br>&nbsp; </span><span class="com"># All rows must be different.</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">(</span><span class="pln">queens</span><span class="pun">))</span><span class="pln"><br><br>&nbsp; </span><span class="com"># All columns must be different because the indices of queens are all different.</span><span class="pln"><br><br>&nbsp; </span><span class="com"># No two queens can be on the same diagonal.</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">([</span><span class="pln">queens</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]))</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">solver</span><span class="pun">.</span><span class="typ">AllDifferent</span><span class="pun">([</span><span class="pln">queens</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> i </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)]))</span><span class="pln"><br><br>&nbsp; db </span><span class="pun">=</span><span class="pln"> solver</span><span class="pun">.</span><span class="typ">Phase</span><span class="pun">(</span><span class="pln">queens</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; solver</span><span class="pun">.</span><span class="pln">CHOOSE_FIRST_UNBOUND</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; solver</span><span class="pun">.</span><span class="pln">ASSIGN_MIN_VALUE</span><span class="pun">)</span><span class="pln"><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">NewSearch</span><span class="pun">(</span><span class="pln">db</span><span class="pun">)</span><span class="pln"><br><br>&nbsp; </span><span class="com"># Iterates through the solutions, displaying each.</span><span class="pln"><br>&nbsp; num_solutions </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">while</span><span class="pln"> solver</span><span class="pun">.</span><span class="typ">NextSolution</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># Displays the solution just computed.</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> j </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> queens</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="typ">Value</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> i</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com"># There is a queen in column j, row i.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Q"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">end</span><span class="pun">=</span><span class="str">" "</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"_"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">end</span><span class="pun">=</span><span class="str">" "</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; num_solutions </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br><br>&nbsp; solver</span><span class="pun">.</span><span class="typ">EndSearch</span><span class="pun">()</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Solutions found:"</span><span class="pun">,</span><span class="pln"> num_solutions</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Time:"</span><span class="pun">,</span><span class="pln"> solver</span><span class="pun">.</span><span class="typ">WallTime</span><span class="pun">(),</span><span class="pln"> </span><span class="str">"ms"</span><span class="pun">)</span><span class="pln"><br><br></span><span class="com"># By default, solve the 8x8 problem.</span><span class="pln"><br>board_size </span><span class="pun">=</span><span class="pln"> </span><span class="lit">8</span><span class="pln"><br><br></span><span class="kwd">if</span><span class="pln"> __name__ </span><span class="pun">==</span><span class="pln"> </span><span class="str">"__main__"</span><span class="pun">:</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">sys</span><span class="pun">.</span><span class="pln">argv</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; board_size </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">(</span><span class="pln">sys</span><span class="pun">.</span><span class="pln">argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])</span><span class="pln"><br>&nbsp; main</span><span class="pun">(</span><span class="pln">board_size</span><span class="pun">)</span></pre>
+        
+          
+          </div>
+          
+        
+          
+                
+          
+        
+        
+        
+        
+        
+        
+        
+                
+        <div class="devsite-content-footer nocontent">
+          
+          
+            <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/terms/site-policies">Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+          
+        
+          
+            
+            <p class="devsite-content-footer-date" itemprop="datePublished" content="2018-05-29T20:11:52.268820">
+              
+              Last updated May 29, 2018.
+            </p>
+          
+        
+        </div>
+        
+                </article>
+
+</body>
+</html>
