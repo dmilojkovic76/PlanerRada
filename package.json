@@ -1,0 +1,24 @@
+{
+	"name": "planer_rada",
+	"version": "0.0.1",
+	"description": "Program automatski kreira raspored rada za navedene radnike po yadatim kriterijumima",
+	"main": "README.md",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dmilojkovic76/PlanerRada.git"
+	},
+	"keywords": [
+		"planer",
+		"raspored",
+		"rada"
+	],
+	"author": "Dušan Milojković",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/dmilojkovic76/PlanerRada/issues"
+	},
+	"homepage": "https://github.com/dmilojkovic76/PlanerRada#readme"
+}
